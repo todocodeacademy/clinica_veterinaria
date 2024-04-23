@@ -14,8 +14,6 @@ services:
     depends_on:
       clinica_vet:
           condition: service_healthy
-    networks:
-      - 'veterinaria-network'
   clinica_vet:
     image: mysql:8.0.33 
     ports:
@@ -29,8 +27,3 @@ services:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 10s
       retries: 10
-    networks:
-      - 'veterinaria-network'
-
-networks:
-  veterinaria-network:
